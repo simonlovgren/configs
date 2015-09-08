@@ -1,7 +1,4 @@
-;; This is the official Emacs init file for the course IOOPM. It
-;; uses English, not because anyone thinks it's cooler than
-;; Swedish, but to avoid encoding problems with using Swedish
-;; characters. Put it in `~/.emacs.d/init.el` to use it for your
+;; Put it in `~/.emacs.d/init.el` to use it for your
 ;; own Emacs. You can use as many or as few of these settings as
 ;; you would like. Experiment and try to find a set-up that suits
 ;; you!
@@ -19,10 +16,21 @@
 ;; function. If you find a function that you like, whose keyboard
 ;; shortcut you don't like, you can (and should!) always change it to
 ;; something that you do like.
-;;
-;; This folder might be updated later in the course, so check back
-;; later for more customizations!
-;;
+
+
+
+;; ====================================
+;; Add repositories / config package.el
+;; ====================================
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
 
 
 ;; ===========
@@ -128,15 +136,21 @@
 (global-set-key (kbd "C-c C-\\") 'mc/mark-all-like-this)
 
 
-;; ================
-;; Add repositories
-;; ================
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+;; Automatically add closing bracket
+(require 'autopair)
+(autopair-global-mode 1)
+(setq autopair-mode t)
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; Autocomplete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+;; set trigger key so that it can work with yasnippet on tab key,
+;; if the word exists in yasnippet, pressing tab will cause yasnippet
+;; to activate, otherwise autocomplete will
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
