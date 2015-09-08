@@ -143,6 +143,10 @@
 
 ;; Yasnippet
 (require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"         ;; personal snippets
+        "~/.emacs.d/yas-snippets"     ;; official snippets
+        ))
 (yas-global-mode 1)
 
 ;; Autocomplete
