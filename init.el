@@ -81,7 +81,8 @@
 (show-paren-mode t)
 
 ;; Show line numbers to the left of all buffers (2014-09-09)
-; (global-linum-mode t)
+(setq linum-format "%4d \u2502 ")
+(global-linum-mode t)
 
 ;; Sentences are not followed by two spaces (2014-08-26)
 ;; Makes navigating with M-e and M-a (forward/backward senctence)
@@ -161,3 +162,5 @@
 ;; to activate, otherwise autocomplete will
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
