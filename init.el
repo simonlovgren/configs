@@ -58,6 +58,10 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
+;; ===========================
+;; Activate installed packages
+;; ===========================
+(package-initialize)
 
 ;; ================================
 ;; Check if packages are installed
@@ -69,12 +73,6 @@ Return a list of installed packages or nil for every skipped package."
  'rust-mode 
  'markdown-mode 
  'toml-mode)
-
-
-;; ===========================
-;; Activate installed packages
-;; ===========================
-(package-initialize)
 
 
 ;; ===========
