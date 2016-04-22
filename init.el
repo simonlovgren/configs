@@ -64,8 +64,13 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 ;; ================================
+;; Update package list
+;; =================================
+;(package-refresh-contents)
+
+;; ================================
 ;; Check if packages are installed
-;;=================================
+;; ================================
 (ensure-package-installed 
  'multiple-cursors 
  'autopair 'yasnippet 
@@ -73,6 +78,7 @@ Return a list of installed packages or nil for every skipped package."
  'rust-mode 
  'markdown-mode 
  'toml-mode)
+;; 'solarized-theme)
 
 
 ;; ===========
@@ -100,6 +106,11 @@ Return a list of installed packages or nil for every skipped package."
 ; (set-foreground-color "white")
 ; (set-cursor-color "white")
 
+;; ================================
+;; Add custom theme paths
+;; ================================
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized")
+
 ;; Set a custom color theme (2013-08-20)
 ;; NB! Needs Emacs 24.X!
 ;; You can also try using a custom theme, which changes more colors
@@ -107,7 +118,8 @@ Return a list of installed packages or nil for every skipped package."
 ;; press "M-x customize-themes <RET>". You can also use a theme in
 ;; combination with the above set-color-commands.
 ; (load-theme 'wombat) 
-(load-theme 'wombat)
+(load-theme 'solarized t)
+
 
 ;; ===========
 ;; Navigation
@@ -203,3 +215,6 @@ Return a list of installed packages or nil for every skipped package."
 (ac-set-trigger-key "<tab>")
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+
+;; Markdown color changes
