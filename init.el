@@ -216,5 +216,4 @@ Return a list of installed packages or nil for every skipped package."
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-
-;; Markdown color changes
+(ac-linum-workaround)
