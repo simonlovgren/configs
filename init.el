@@ -68,19 +68,6 @@ Return a list of installed packages or nil for every skipped package."
 ;; =================================
 ;(package-refresh-contents)
 
-;; ================================
-;; Check if packages are installed
-;; ================================
-(ensure-package-installed 
- 'multiple-cursors 
- 'autopair 'yasnippet 
- 'auto-complete 
- 'rust-mode 
- 'markdown-mode 
- 'toml-mode)
-;; 'solarized-theme)
-
-
 ;; ===========
 ;; Appearance
 ;; ===========
@@ -181,6 +168,23 @@ Return a list of installed packages or nil for every skipped package."
 ;; additional searching, such as in your kill ring or the names of the
 ;; files you have open.
 (global-set-key (kbd "M-/") 'hippie-expand)
+
+
+;; ================================
+;; Check if packages are installed
+;; ================================
+(ensure-package-installed 
+ 'multiple-cursors 
+ 'autopair 'yasnippet 
+ 'auto-complete 
+ 'rust-mode 
+ 'markdown-mode 
+ 'toml-mode)
+;; 'solarized-theme)
+
+;; ==================================
+;; Third party package settings
+;; ==================================
 
 ;; Multiple cursors
 ;;
