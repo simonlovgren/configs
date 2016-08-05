@@ -179,12 +179,17 @@ Return a list of installed packages or nil for every skipped package."
  'auto-complete 
  'rust-mode 
  'markdown-mode 
- 'toml-mode)
+ 'toml-mode
+ 'fill-column-indicator)
 ;; 'solarized-theme)
 
 ;; ==================================
 ;; Third party package settings
 ;; ==================================
+
+;; Fill column indicator
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
 
 ;; Multiple cursors
 ;;
