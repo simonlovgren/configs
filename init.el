@@ -180,7 +180,11 @@ Return a list of installed packages or nil for every skipped package."
  'rust-mode 
  'markdown-mode 
  'toml-mode
- 'fill-column-indicator)
+ 'fill-column-indicator
+ 'visual-regexp
+ 'linum-relative
+ 'indent-guide
+ 'flycheck)
 ;; 'solarized-theme)
 
 ;; ==================================
@@ -226,3 +230,30 @@ Return a list of installed packages or nil for every skipped package."
 (put 'downcase-region 'disabled nil)
 
 (ac-linum-workaround)
+
+;; Visual regex
+(require 'visual-regexp)
+(define-key global-map (kbd "C-c r") 'vr/replace)
+(define-key global-map (kbd "C-c q") 'vr/query-replace)
+;; if you use multiple-cursors, this is for you:
+(define-key global-map (kbd "C-c m") 'vr/mc-mark)
+
+;; Linum relative
+(require 'linum-relative)
+(setq linum-relative-current-symbol  "0")
+(setq linum-relative-format "%4s \u2502 ")
+
+(global-set-key (kbd "C-c C-l") 'linum-relative-toggle)
+
+;; Indent guide
+(require 'indent-guide)
+(indent-guide-global-mode)
+(set-face-background 'indent-guide-face "dimgray")
+(setq indent-guide-delay 0.1)
+(setq indent-guide-recursive t) ;; show all levels of indentation
+(setq indent-guide-char ":") ;; Custom indent char
+
+;; Flycheck
+;;(require 'flycheck)
+;;(global-flycheck-mode)
+
