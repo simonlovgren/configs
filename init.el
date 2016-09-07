@@ -258,7 +258,7 @@ Return a list of installed packages or nil for every skipped package."
 ;; Language-aware navigation
 (require 'imenu-anywhere)
 (setq imenu-auto-rescan t)
-(global-set-key (kbd "C-.") 'imenu-anywhere)
+(global-set-key (kbd "C-c C-f") 'imenu-anywhere)
 
 ;; Flycheck
 ;;(require 'flycheck)
