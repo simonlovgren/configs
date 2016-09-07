@@ -184,6 +184,7 @@ Return a list of installed packages or nil for every skipped package."
  'visual-regexp
  'linum-relative
  'indent-guide
+ 'imenu-anywhere
  'flycheck)
 ;; 'solarized-theme)
 
@@ -252,6 +253,12 @@ Return a list of installed packages or nil for every skipped package."
 (setq indent-guide-delay 0.1)
 (setq indent-guide-recursive t) ;; show all levels of indentation
 (setq indent-guide-char ":") ;; Custom indent char
+
+;; Imenu-Anywhere
+;; Language-aware navigation
+(require 'imenu-anywhere)
+(setq imenu-auto-rescan t)
+(global-set-key (kbd "C-.") 'imenu-anywhere)
 
 ;; Flycheck
 ;;(require 'flycheck)
