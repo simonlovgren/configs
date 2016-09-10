@@ -169,6 +169,18 @@ Return a list of installed packages or nil for every skipped package."
 ;; files you have open.
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+;; =======================
+;; SET TEMPORARY FOLDER
+;; =======================
+;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
+(defconst emacs-tmp-dir (format "%s%s%s/" temporary-file-directory "emacs" (user-uid)))
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
+
 
 ;; ================================
 ;; Check if packages are installed
