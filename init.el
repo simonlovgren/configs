@@ -119,7 +119,7 @@ Return a list of installed packages or nil for every skipped package."
 (show-paren-mode t)
 
 ;; Show line numbers to the left of all buffers (2014-09-09)
-(setq linum-format "%4d \u2502 ")
+(setq linum-format "%4d | ")
 (global-linum-mode t)
 
 ;; Sentences are not followed by two spaces (2014-08-26)
@@ -254,7 +254,7 @@ Return a list of installed packages or nil for every skipped package."
 ;; Linum relative
 (require 'linum-relative)
 (setq linum-relative-current-symbol  "0")
-(setq linum-relative-format "%4s \u2502 ")
+(setq linum-relative-format "%4s | ")
 
 (global-set-key (kbd "C-c C-l") 'linum-relative-toggle)
 
