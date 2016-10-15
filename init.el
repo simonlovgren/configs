@@ -18,7 +18,6 @@
 ;; something that you do like.
 
 
-
 ;; ====================================
 ;; Add repositories / config package.el
 ;; ====================================
@@ -94,6 +93,28 @@ Return a list of installed packages or nil for every skipped package."
 ; (set-cursor-color "white")
 
 ;; ================================
+;; Check if packages are installed
+;; ================================
+(ensure-package-installed 
+ 'multiple-cursors 
+ 'autopair 'yasnippet 
+ 'auto-complete 
+ 'rust-mode 
+ 'markdown-mode 
+ 'toml-mode
+ 'fill-column-indicator
+ 'visual-regexp
+ 'linum-relative
+ 'indent-guide
+ 'imenu-anywhere
+ 'flycheck
+ 'monokai-theme
+ 'smart-mode-line
+ 'smart-mode-line-powerline-theme)
+;; 'solarized-theme)
+
+
+;; ================================
 ;; Add custom theme paths
 ;; ================================
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized")
@@ -105,7 +126,19 @@ Return a list of installed packages or nil for every skipped package."
 ;; press "M-x customize-themes <RET>". You can also use a theme in
 ;; combination with the above set-color-commands.
 ; (load-theme 'wombat) 
-(load-theme 'solarized t)
+(load-theme 'monokai t)
+
+;; ===========
+;; mode line
+;; ===========
+(setq powerline-color1 "#ff0000")
+(setq powerline-color2 "grey40")
+(setq powerline-arrow-shape 'arrow)
+(setq powerline-default-separator-dir '(right . left))
+;; These two lines you really need.
+(setq sml/theme 'powerline)
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
 
 
 ;; ===========
@@ -182,24 +215,6 @@ Return a list of installed packages or nil for every skipped package."
       emacs-tmp-dir)
 
 
-;; ================================
-;; Check if packages are installed
-;; ================================
-(ensure-package-installed 
- 'multiple-cursors 
- 'autopair 'yasnippet 
- 'auto-complete 
- 'rust-mode 
- 'markdown-mode 
- 'toml-mode
- 'fill-column-indicator
- 'visual-regexp
- 'linum-relative
- 'indent-guide
- 'imenu-anywhere
- 'flycheck)
-;; 'solarized-theme)
-
 ;; ==================================
 ;; Third party package settings
 ;; ==================================
@@ -259,20 +274,35 @@ Return a list of installed packages or nil for every skipped package."
 (global-set-key (kbd "C-c C-l") 'linum-relative-toggle)
 
 ;; Indent guide
-(require 'indent-guide)
-(indent-guide-global-mode)
-(set-face-background 'indent-guide-face "dimgray")
-(setq indent-guide-delay 0.1)
-(setq indent-guide-recursive t) ;; show all levels of indentation
-(setq indent-guide-char ":") ;; Custom indent char
+;;(require 'indent-guide)
+;;(indent-guide-global-mode)
+;;(set-face-background 'indent-guide-face "dimgray")
+;;(setq indent-guide-delay 0.1)
+;;(setq indent-guide-recursive t) ;; show all levels of indentation
+;;(setq indent-guide-char ":") ;; Custom indent char
 
 ;; Imenu-Anywhere
 ;; Language-aware navigation
 (require 'imenu-anywhere)
+;; Load custom menus
 (setq imenu-auto-rescan t)
-(global-set-key (kbd "C-c C-f") 'imenu-anywhere)
+(global-set-key (kbd "C-c M-.") 'imenu-anywhere)
 
 ;; Flycheck
 ;;(require 'flycheck)
 ;;(global-flycheck-mode)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
