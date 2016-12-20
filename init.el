@@ -202,6 +202,8 @@ Return a list of installed packages or nil for every skipped package."
 ;; files you have open.
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+;; Custom file types
+(add-to-list 'auto-mode-alist '("\\.l\\'" . c-mode))
 ;; =======================
 ;; SET TEMPORARY FOLDER
 ;; =======================
